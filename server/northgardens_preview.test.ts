@@ -39,9 +39,11 @@ describe("Northgardens static preview mount", () => {
   it("gives cart products more room and labels the primary action clearly", () => {
     const styles = readFileSync(path.join(previewRoot, "css/custom-northgardens.css"), "utf8");
     const cart = readFileSync(path.join(previewRoot, "js/cart.js"), "utf8");
+    const drawerMarkup = cart.slice(0, cart.indexOf("bindEvents()"));
     expect(styles).toContain(".cart-item-thumb { width: 116px; height: 116px");
     expect(styles).toContain(".cart-drawer { width: 620px");
     expect(styles).toContain(".cart-items-list { min-height: 280px");
-    expect(cart).toContain("Squeeze Your Royal Bag");
+    expect(cart).toContain("<span>Checkout</span>");
+    expect(drawerMarkup).not.toContain("cart-coupon-input");
   });
 });

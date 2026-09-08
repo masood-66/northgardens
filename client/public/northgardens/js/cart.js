@@ -68,14 +68,6 @@ class CartManager {
 
           <!-- Cart Footer -->
           <div class="cart-drawer-footer">
-            <div class="coupon-box">
-              <div class="coupon-input-wrap">
-                <input type="text" id="cart-coupon-input" placeholder="Promo code (Try: ROYAL10)" aria-label="Discount Coupon Code">
-                <button id="cart-apply-coupon-btn" type="button" class="btn-coupon">Apply</button>
-              </div>
-              <div id="coupon-message" class="coupon-msg"></div>
-            </div>
-
             <div class="cart-summary-lines">
               <div class="summary-line">
                 <span>Subtotal</span>
@@ -97,7 +89,7 @@ class CartManager {
 
             <div class="cart-action-buttons">
               <button id="checkout-btn" class="btn-royal-gold btn-block checkout-action-btn">
-                  <span>Squeeze Your Royal Bag</span>
+                  <span>Checkout</span>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
               <a href="shop.html" class="continue-shopping-link" id="continue-shopping-btn">Explore More Harvests</a>
