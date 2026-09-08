@@ -29,7 +29,8 @@ describe("Northgardens static preview mount", () => {
 
   it("includes a Japanese maple background layer", () => {
     const styles = readFileSync(path.join(previewRoot, "css/custom-northgardens.css"), "utf8");
-    expect(styles).toContain("japanese-maple-centered-optimized_0d86ccf5.jpg");
+    expect(styles).toContain("japanese-maple-tree-transparent_76e91cdc.png");
     expect(styles).toContain("rgba(255,255,255,.38)");
+    expect(styles).toContain("font-size: 1.5rem");
   });
 });

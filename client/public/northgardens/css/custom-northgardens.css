@@ -163,10 +163,10 @@ body { font-size: 16px; }
   --font-serif: "The Munday", "Geraldine", "The Valentino", "Cormorant Garamond", Georgia, serif;
 }
 
-body { font-size: 1.4rem; }
+body { font-size: 1.5rem; }
 .section-subtitle,
 .promo-text-column p,
-.northgardens-hero-content > p { font-size: 1.4rem; }
+  .northgardens-hero-content > p { font-size: 1.5rem; }
 
 /* Keep navigation, labels, buttons, and product metadata proportionate. */
 .top-announcement-bar,
@@ -188,7 +188,7 @@ body { font-size: 1.4rem; }
 @media (max-width: 640px) {
   .northgardens-hero-content > p,
   .section-subtitle,
-  .promo-text-column p { font-size: 1.4rem; }
+  .promo-text-column p { font-size: 1.5rem; }
 }
 
 /* Let the brighter leaf silhouettes drift visibly across the background and section corners. */
@@ -196,6 +196,11 @@ body { font-size: 1.4rem; }
 .ambient-leaves-toggle { z-index: 20; }
 
 /* A quiet Japanese maple garden sits behind the storefront while content stays readable. */
-body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(rgba(10, 33, 24, .16), rgba(10, 33, 24, .24)), url("/manus-storage/japanese-maple-centered-optimized_0d86ccf5.jpg") center / cover no-repeat fixed; opacity: .96; }
+ :root { --color-accent-gold: #b97845; --color-accent-gold-hover: #965a34; --color-gold-light: #f1dfc3; --color-cream: #f7f1e7; --color-cream-card: rgba(255,255,255,.7); --color-muted: #68736e; --color-border: rgba(111, 88, 64, .2); }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(circle at center, rgba(255,250,240,.18), rgba(14,34,26,.12)); }
+body::after { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; background: url("/manus-storage/japanese-maple-tree-transparent_76e91cdc.png") center center / min(58vw, 760px) auto no-repeat; opacity: .68; }
 .products-section, .dynamic-promo-section, .social-proof-section, .instagram-section { background-color: rgba(250, 247, 242, .28); }
 .dynamic-promo-section .promo-text-column, .social-proof-section .testimonial-card { background: rgba(255,255,255,.34); border: 1px solid rgba(255,255,255,.52); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.product-card, .dynamic-promo-section .promo-text-column, .social-proof-section .testimonial-card { background-color: rgba(255,255,255,.12); }
+.split-promo-grid { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.46); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); }
+.promo-text-column { background: rgba(255,255,255,.16) !important; }
