@@ -35,4 +35,12 @@ describe("Northgardens static preview mount", () => {
     expect(styles).toContain("rgba(255,255,255,.38)");
     expect(styles).toContain("font-size: 1.5rem");
   });
+
+  it("gives cart products more room and labels the primary action clearly", () => {
+    const styles = readFileSync(path.join(previewRoot, "css/custom-northgardens.css"), "utf8");
+    const cart = readFileSync(path.join(previewRoot, "js/cart.js"), "utf8");
+    expect(styles).toContain(".cart-item-thumb { width: 116px; height: 116px");
+    expect(styles).toContain(".cart-drawer { width: 560px");
+    expect(cart).toContain("Squeeze Your Royal Bag");
+  });
 });

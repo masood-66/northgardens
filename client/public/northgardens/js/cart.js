@@ -97,7 +97,7 @@ class CartManager {
 
             <div class="cart-action-buttons">
               <button id="checkout-btn" class="btn-royal-gold btn-block checkout-action-btn">
-                <span>Proceed to Royal Checkout</span>
+                  <span>Squeeze Your Royal Bag</span>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
               <a href="shop.html" class="continue-shopping-link" id="continue-shopping-btn">Explore More Harvests</a>
