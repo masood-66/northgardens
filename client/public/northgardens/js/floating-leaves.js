@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Ambient Floating Leaves & Botanical Motion Engine
+ * Northgardens - Ambient Floating Leaves & Botanical Motion Engine
  * A high-performance canvas simulation rendering luxury floating almond leaves,
  * pistachio foliage, and golden autumn petals with natural swaying physics.
  */

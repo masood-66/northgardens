@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Artisanal Dry Fruits & Royal Harvest
+ * Northgardens - Artisanal Dry Fruits & Royal Harvest
  * Product Catalog Database
  * Contains >4 items per category (5 items across all 9 categories = 45 products total)
  */
@@ -480,7 +480,7 @@ const PRODUCTS_DATA = [
     badgeType: "reserve",
     rating: 5.0,
     reviewsCount: 96,
-    origin: "Zaffran Private Kitchens",
+    origin: "Northgardens Private Kitchens",
     harvestYear: "Winter 2025",
     shortDescription: "Snow walnut halves toasted and glazed with organic pure maple syrup and aromatic green cardamom.",
     fullDescription: "A sublime teatime indulgence. Delicate walnut bitterness is subdued by crystalline dark amber maple syrup and crushed cardamom seed warmth.",
@@ -609,7 +609,7 @@ const PRODUCTS_DATA = [
     badgeType: "hot",
     rating: 5.0,
     reviewsCount: 119,
-    origin: "Zaffran Master Roast",
+    origin: "Northgardens Master Roast",
     harvestYear: "Winter 2025",
     shortDescription: "Jumbo cashews coated with wildflower amber honey, brown sugar, and toasted white sesame seeds.",
     fullDescription: "A delightfully crunchy confection where sesame nuttiness and floral honey cling to jumbo buttery cashews. Highly addictive festive treat.",
@@ -1195,7 +1195,7 @@ const REVIEWS_DATA = [
     product: "Royal Kashmiri Mamra Almonds",
     rating: 5,
     title: "Astonishing natural oil content and crispness",
-    comment: "In my confectionery kitchens, we tested over a dozen growers. Zaffran & Co.'s Mamra almonds deliver that pristine high-altitude aromatic oil crunch that transforms desserts and morning rituals."
+    comment: "In my confectionery kitchens, we tested over a dozen growers. Northgardens's Mamra almonds deliver that pristine high-altitude aromatic oil crunch that transforms desserts and morning rituals."
   },
   {
     author: "Dr. Anya Sharma",

@@ -10,6 +10,8 @@ describe("Northgardens static preview mount", () => {
 
     expect(homepage).toContain('src="/manus-storage/hero-section-image_ebb1a79b.png"');
     expect(homepage).toContain("/manus-storage/almonds_a5bde7bd.jpg");
+    expect(homepage).toContain("Northgardens");
+    expect(homepage).not.toContain("Zaffran");
     expect(homepage).not.toContain("dry-fruit-assets/");
     expect(existsSync(path.join(previewRoot, "index.html"))).toBe(true);
     expect(existsSync(path.join(previewRoot, "css/custom-northgardens.css"))).toBe(true);
@@ -27,6 +29,7 @@ describe("Northgardens static preview mount", () => {
 
   it("includes a Japanese maple background layer", () => {
     const styles = readFileSync(path.join(previewRoot, "css/custom-northgardens.css"), "utf8");
-    expect(styles).toContain("japanese-maple-background-optimized_61a5c475.jpg");
+    expect(styles).toContain("japanese-maple-centered-optimized_0d86ccf5.jpg");
+    expect(styles).toContain("rgba(255,255,255,.38)");
   });
 });

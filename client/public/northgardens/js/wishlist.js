@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Wishlist Manager
+ * Northgardens - Wishlist Manager
  * Allows connoisseurs to save luxury harvests and move them directly to bag.
  */
 

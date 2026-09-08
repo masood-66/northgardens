@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Live Predictive Search Engine
+ * Northgardens - Live Predictive Search Engine
  * Provides real-time matching with category filtering and visual suggestions.
  */
 

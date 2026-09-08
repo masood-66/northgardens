@@ -62,12 +62,12 @@ body { font-family: var(--font-sans); font-size: 14px; }
 .category-filter-tabs { gap: 7px; }
 .tab-btn { padding: 6px 13px; font-size: .72rem; }
 .products-grid { gap: 18px; }
-.product-card { border-radius: 14px; background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(247,239,216,.44)); box-shadow: 0 8px 26px rgba(16, 38, 28, .10), inset 0 1px 0 rgba(255,255,255,.82); border: 1px solid rgba(255,255,255,.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.product-card { border-radius: 14px; background: linear-gradient(145deg, rgba(255,255,255,.38), rgba(247,239,216,.18)); box-shadow: 0 12px 32px rgba(16, 38, 28, .18), inset 0 1px 0 rgba(255,255,255,.76); border: 1px solid rgba(255,255,255,.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 30px rgba(16, 38, 28, .16), inset 0 1px 0 rgba(255,255,255,.95); border-color: rgba(212,175,55,.58); }
 .product-card-thumb, .product-card.double-width .product-card-thumb { height: 220px; background: linear-gradient(135deg, rgba(255,248,230,.72), rgba(216,190,144,.34)); }
 .product-card.double-width .product-card-thumb { height: 260px; }
 .product-card-thumb img { object-fit: cover; }
-.product-card-body { padding: 16px; background: rgba(255,255,255,.24); }
+.product-card-body { padding: 16px; background: rgba(255,255,255,.16); }
 .product-cat { font-size: .63rem; margin-bottom: 4px; }
 .product-title { margin: 3px 0 7px; font-size: .95rem; line-height: 1.25; min-height: 2.4em; }
 .product-card.double-width .product-title { font-size: 1.08rem; }
@@ -196,4 +196,6 @@ body { font-size: 1.4rem; }
 .ambient-leaves-toggle { z-index: 20; }
 
 /* A quiet Japanese maple garden sits behind the storefront while content stays readable. */
-body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(rgba(250,247,242,.74), rgba(250,247,242,.82)), url("/manus-storage/japanese-maple-background-optimized_61a5c475.jpg") center / cover no-repeat; opacity: .82; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(rgba(10, 33, 24, .16), rgba(10, 33, 24, .24)), url("/manus-storage/japanese-maple-centered-optimized_0d86ccf5.jpg") center / cover no-repeat fixed; opacity: .96; }
+.products-section, .dynamic-promo-section, .social-proof-section, .instagram-section { background-color: rgba(250, 247, 242, .28); }
+.dynamic-promo-section .promo-text-column, .social-proof-section .testimonial-card { background: rgba(255,255,255,.34); border: 1px solid rgba(255,255,255,.52); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }

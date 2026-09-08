@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Core Application Scripts
+ * Northgardens - Core Application Scripts
  * Mobile navigation, dynamic typed text, notifications, and interactive UI.
  */
 

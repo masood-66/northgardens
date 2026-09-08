@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Cart, Drawer & Checkout System
+ * Northgardens - Cart, Drawer & Checkout System
  * Handles multi-weight purchasing, local storage synchronization,
  * coupon codes, free shipping goals, and simulated order completion.
  */
@@ -116,7 +116,7 @@ class CartManager {
             <button id="checkout-modal-close" class="modal-close-btn" aria-label="Close checkout modal">&times;</button>
             <div class="checkout-modal-content">
               <div class="checkout-modal-header">
-                <span class="royal-seal">✦ ZAFFRAN & CO. ROYAL DISPATCH ✦</span>
+                <span class="royal-seal">✦ NORTHGARDENS ROYAL DISPATCH ✦</span>
                 <h2 id="checkout-modal-title">Complete Your Royal Order</h2>
                 <p>Enjoy hand-packaged harvest fresh dry fruits delivered in temperature-sealed luxury containers.</p>
               </div>
@@ -211,7 +211,7 @@ class CartManager {
             </div>
             <h2>Royal Order Confirmed!</h2>
             <p class="order-id-label">Order Reference: <strong id="success-order-id">#ZAF-89241</strong></p>
-            <p class="success-desc">Thank you for choosing Zaffran & Co. Our master packers are hand-inspecting and sealing your dry fruit selection in nitrogen-flushed golden tins.</p>
+            <p class="success-desc">Thank you for choosing Northgardens Our master packers are hand-inspecting and sealing your dry fruit selection in nitrogen-flushed golden tins.</p>
             <div class="order-receipt-details" id="order-receipt-details">
               <!-- Rendered receipt breakdown -->
             </div>

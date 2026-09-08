@@ -1,5 +1,5 @@
 /**
- * Zaffran & Co. - Quickview Modal
+ * Northgardens - Quickview Modal
  * Renders rapid interactive product preview with dynamic weight options.
  */
 
