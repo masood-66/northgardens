@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concierge &amp; Inquiries | Zaffran & Co. Royal Harvest</title>
+  <meta name="description" content="Contact the Zaffran & Co. royal concierge for bespoke corporate hampers, wedding celebrations, wholesale reserves, or delivery inquiries.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/custom-northgardens.css">
+  <style>
+    .contact-hero {
+      background: linear-gradient(rgba(16, 38, 28, 0.82), rgba(16, 38, 28, 0.92)), url('/manus-storage/hamper_812cf37e.jpg') center/cover;
+      color: #FFFFFF;
+      padding: 70px 0;
+      text-align: center;
+      border-bottom: 2px solid var(--color-accent-gold);
+    }
+    .contact-main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      padding: 60px 0 90px;
+    }
+    .contact-card-box {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-card-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+    .contact-card-box p {
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border-light);
+    }
+    .c-info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .c-info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-cream);
+      color: var(--color-accent-gold-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      border: 1px solid var(--color-border);
+    }
+    .c-info-text strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--color-primary);
+      margin-bottom: 2px;
+    }
+    .c-info-text span {
+      font-size: 0.85rem;
+      color: var(--color-charcoal);
+    }
+    /* FAQ Accordion */
+    .faq-accordion-box {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+    .faq-item.active {
+      border-color: var(--color-accent-gold);
+    }
+    .faq-question {
+      padding: 18px 22px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FDFBF7;
+    }
+    .faq-arrow {
+      transition: transform 0.3s ease;
+      font-size: 0.9rem;
+      color: var(--color-accent-gold);
+    }
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 18px 22px;
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      background: #FFFFFF;
+      border-top: 1px solid var(--color-border-light);
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    @media (max-width: 992px) {
+      .contact-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="ambient-leaves-canvas" class="ambient-leaves-canvas"></canvas>
+
+  <div class="site-wrap">
+    
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement-bar">
+      <div class="container top-bar-inner">
+        <div class="announcement-text">
+          <span>👑 Royal Privilege:</span> Free Express Shipping on orders over $75 &bull; Code: <strong>ROYAL10</strong>
+        </div>
+        <div class="top-bar-links">
+          <a href="shop.html">Browse Harvests</a>
+          <a href="about.html">Orchard Provenance</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header id="masthead" class="site-header">
+      <div class="container header-wrap">
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Open Menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="site-branding">
+          <a href="index.html">
+            <div class="brand-emblem">Z</div>
+            <div class="brand-text">
+              <span class="brand-title">ZAFFRAN &amp; CO.</span>
+              <span class="brand-tagline">ARTISANAL ROYAL HARVEST</span>
+            </div>
+          </a>
+        </div>
+
+        <nav id="site-navigation" class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Royal Shop</a></li>
+            <li><a href="shop.html?cat=hampers">Gift Hampers</a></li>
+            <li><a href="about.html">Heritage &amp; Quality</a></li>
+            <li><a href="contact.html" class="active-nav">Concierge &amp; Inquiries</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-icon-btn search-trigger-btn" data-action="open-search" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          <button class="header-icon-btn wishlist-nav-trigger" data-action="open-wishlist" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="icon-badge wishlist-count">0</span>
+          </button>
+          <div class="cart-nav-wrap cart-trigger-btn" data-action="open-cart" role="button" tabindex="0">
+            <div class="header-icon-btn">
+              <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span class="icon-badge cart-count">0</span>
+            </div>
+            <span class="cart-nav-price">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <div class="container">
+        <span class="royal-seal">✦ THE CONCIERGE DESK ✦</span>
+        <h1 style="font-family: var(--font-display); font-size: 2.8rem; margin: 8px 0 12px;">At Your Distinguished Service</h1>
+        <p style="max-width: 620px; margin: 0 auto; font-size: 1.1rem; color: rgba(255,255,255,0.85);">
+          Whether orchestrating bespoke corporate gifting, custom celebratory hampers, or inquiring regarding single-origin harvest allocations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+      <div class="contact-main-grid">
+        
+        <!-- Left: Form -->
+        <div class="contact-card-box">
+          <span class="royal-seal">✦ DIRECT DISPATCH DESK ✦</span>
+          <h3>Send an Inquiry</h3>
+          <p>Our concierge staff responds within four business hours.</p>
+
+          <form id="concierge-inquiry-form" onsubmit="return false;">
+            <div class="form-row form-two-col">
+              <div class="form-group">
+                <label for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" required placeholder="Lord / Lady Vance">
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" required placeholder="vance@estate.com">
+              </div>
+            </div>
+
+            <div class="form-row form-two-col">
+              <div class="form-group">
+                <label for="contact-phone">Phone / Mobile</label>
+                <input type="tel" id="contact-phone" placeholder="+1 (555) 019-2834">
+              </div>
+              <div class="form-group">
+                <label for="contact-nature">Nature of Inquiry</label>
+                <select id="contact-nature">
+                  <option value="festive_gifting">Festive &amp; Corporate Hampers</option>
+                  <option value="private_reserve">Private Vintage Harvest Allocation</option>
+                  <option value="wholesale">Boutique Grocery &amp; Michelin Wholesale</option>
+                  <option value="shipping">Order Tracking &amp; Delivery Concierge</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-msg">Your Message *</label>
+              <textarea id="contact-msg" rows="4" required placeholder="Please describe your requirements, custom gift engraving, or parcel destination..." style="padding: 12px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: #FDFBF7; font-family: inherit;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-royal-gold" style="width: 100%; margin-top: 10px;">
+              <span>Submit Royal Inquiry</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+
+          <div class="contact-info-list">
+            <div class="c-info-item">
+              <div class="c-info-icon">📍</div>
+              <div class="c-info-text">
+                <strong>Estate Flagship &amp; Showroom:</strong>
+                <span>1418 Riverwood Drive, Suite 3245, Cottonwood, CA 96052, United States</span>
+              </div>
+            </div>
+            <div class="c-info-item">
+              <div class="c-info-icon">📞</div>
+              <div class="c-info-text">
+                <strong>Diplomatic Phone Concierge:</strong>
+                <span>+1 (800) 492-3371 &bull; Direct: +1 (530) 347-1900</span>
+              </div>
+            </div>
+            <div class="c-info-item">
+              <div class="c-info-icon">✉️</div>
+              <div class="c-info-text">
+                <strong>Direct Electronic Correspondence:</strong>
+                <span>concierge@zaffranco.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: FAQ Accordion -->
+        <div id="faqs">
+          <span class="royal-seal">✦ CURATED ANSWERS ✦</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-primary); margin-bottom: 20px;">Frequently Asked Questions</h3>
+
+          <div class="faq-accordion-box">
+            
+            <div class="faq-item active">
+              <div class="faq-question">
+                <span>What differentiates Kashmiri Mamra almonds from standard almonds?</span>
+                <span class="faq-arrow">▼</span>
+              </div>
+              <div class="faq-answer">
+                Mamra almonds represent less than 4% of the world's almond supply. Unlike California almonds which are chemically pasteurized and hold only 25–30% oil, Kashmiri Mamra almonds possess over 50% natural oil density, non-GMO genetics, and a sweeter, richer herbal crunch.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>How should I store my dry fruits upon arrival?</span>
+                <span class="faq-arrow">▼</span>
+              </div>
+              <div class="faq-answer">
+                Our harvests arrive in nitrogen-flushed golden tins with airtight pull-ring seals. Unopened, they remain pristine for 18 months. Once unsealed, store in a cool, dark larder or refrigerator crisper drawer to maintain aromatic oils.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Do you offer bespoke corporate and wedding gifting?</span>
+                <span class="faq-arrow">▼</span>
+              </div>
+              <div class="faq-answer">
+                Yes. We offer handcrafted seasoned walnut wood chests with custom brass monogramming, personalized wax-sealed parchment messages, and customized assortment combinations for high-profile weddings and corporate holiday reserves.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>What is the shipping timeframe and threshold for free delivery?</span>
+                <span class="faq-arrow">▼</span>
+              </div>
+              <div class="faq-answer">
+                All orders exceeding $75 qualify automatically for Complimentary Royal Express Shipping (2–4 business days with diplomatic parcel tracking). Orders under $75 carry a flat $9.50 express courier fee.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Are your nuts chemically bleached or heat-treated?</span>
+                <span class="faq-arrow">▼</span>
+              </div>
+              <div class="faq-answer">
+                Never. We enforce a 0% synthetic chemical policy. Walnut shells and almond kernels retain their authentic sun-ripened earthen hues without chlorine, sulfur dioxide, or paraffin coatings.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="colophon" class="site-footer">
+      <div class="container">
+        <div class="footer-widgets-grid">
+          <div class="footer-widget">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+              <div class="brand-emblem">Z</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.3rem;">ZAFFRAN &amp; CO.</h3>
+            </div>
+            <p class="footer-desc">Curators of rare, high-altitude Kashmiri and international royal harvest dry fruits.</p>
+          </div>
+          <div class="footer-widget">
+            <h4>The Harvests</h4>
+            <ul class="footer-links-list">
+              <li><a href="shop.html?cat=almonds">Mamra Almonds</a></li>
+              <li><a href="shop.html?cat=dates">Medjool Dates</a></li>
+              <li><a href="shop.html?cat=pistachios">Akbari Pistachios</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget">
+            <h4>The Maison</h4>
+            <ul class="footer-links-list">
+              <li><a href="about.html">Heritage Story</a></li>
+              <li><a href="contact.html">Concierge Inquiries</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget">
+            <h4>Newsletter</h4>
+            <div class="newsletter-form-wrap">
+              <p>Code ROYAL10 grants 10% off your dispatch.</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Email..." required>
+                <button type="submit">Join</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>&copy; 2026 Zaffran &amp; Co. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="page-scroll-top" class="scroll-top-btn" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/floating-leaves.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/quickview.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // FAQ Accordion Toggle
+      document.querySelectorAll(".faq-question").forEach(q => {
+        q.addEventListener("click", () => {
+          const item = q.closest(".faq-item");
+          const wasActive = item.classList.contains("active");
+          document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+          if (!wasActive) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Contact Form Submit
+      const form = document.getElementById("concierge-inquiry-form");
+      if (form) {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("contact-name").value;
+          form.reset();
+          if (window.showToast) {
+            window.showToast(`Thank you, ${name}. Your royal inquiry has been received. Our concierge will contact you shortly.`);
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

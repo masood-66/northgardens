@@ -1,0 +1,170 @@
+/**
+ * Zaffran & Co. - Luxury Animations & Micro-interactions
+ */
+
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(212, 175, 55, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Shimmer on luxury buttons */
+.btn-royal-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-royal-gold::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 80%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.btn-royal-gold:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+/* Hover Zoom for Banners & Products */
+.hover-zoom-wrap {
+  overflow: hidden;
+}
+
+.hover-zoom-wrap img {
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.hover-zoom-wrap:hover img {
+  transform: scale(1.06);
+}
+
+/* Dual image flip on product card */
+.product-card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-thumb .img-primary {
+  transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card-thumb .img-secondary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-card-thumb .img-primary {
+  opacity: 0;
+}
+
+.product-card:hover .product-card-thumb .img-secondary {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* Quickview and Wishlist buttons floating animation */
+.product-actions-floating {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.product-card:hover .product-actions-floating {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Typed cursor blink */
+.typed-cursor {
+  animation: pulseGlow 1.2s infinite ease-in-out;
+  color: var(--color-accent-gold);
+  font-weight: 300;
+  display: inline-block;
+  margin-left: 2px;
+}

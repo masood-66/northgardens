@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Heritage &amp; Provenance | Zaffran & Co.</title>
+  <meta name="description" content="Discover the story behind Zaffran & Co., our high-altitude Kashmiri groves, traditional sun-curing methods, and uncompromising commitment to purity.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/custom-northgardens.css">
+  <style>
+    .about-hero-section {
+      background: linear-gradient(rgba(16, 38, 28, 0.8), rgba(16, 38, 28, 0.9)), url('/manus-storage/dry-fruit-hero_d1aa865b.jpg') center/cover;
+      color: #FFFFFF;
+      padding: 90px 0;
+      text-align: center;
+      border-bottom: 2px solid var(--color-accent-gold);
+    }
+    .stats-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: -40px auto 70px;
+      position: relative;
+      z-index: 5;
+    }
+    .stat-card {
+      background: #FFFFFF;
+      padding: 30px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .story-split-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    .story-split-row.reverse {
+      direction: rtl;
+    }
+    .story-split-row.reverse > * {
+      direction: ltr;
+    }
+    .story-img-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+    .story-content h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--color-primary);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .story-content p {
+      color: var(--color-charcoal);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .quality-pillar-card {
+      background: #FFFFFF;
+      border-left: 4px solid var(--color-accent-gold);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .quality-pillar-card h4 {
+      font-family: var(--font-display);
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    @media (max-width: 992px) {
+      .stats-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .story-split-row,
+      .story-split-row.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="ambient-leaves-canvas" class="ambient-leaves-canvas"></canvas>
+
+  <div class="site-wrap">
+    
+    <div class="top-announcement-bar">
+      <div class="container top-bar-inner">
+        <div class="announcement-text">
+          <span>👑 Royal Privilege:</span> Free Express Shipping on orders over $75 &bull; Code: <strong>ROYAL10</strong>
+        </div>
+        <div class="top-bar-links">
+          <a href="shop.html">Browse Harvests</a>
+          <a href="contact.html">Concierge Inquiries</a>
+        </div>
+      </div>
+    </div>
+
+    <header id="masthead" class="site-header">
+      <div class="container header-wrap">
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Open Menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="site-branding">
+          <a href="index.html">
+            <div class="brand-emblem">Z</div>
+            <div class="brand-text">
+              <span class="brand-title">ZAFFRAN &amp; CO.</span>
+              <span class="brand-tagline">ARTISANAL ROYAL HARVEST</span>
+            </div>
+          </a>
+        </div>
+
+        <nav id="site-navigation" class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Royal Shop</a></li>
+            <li><a href="shop.html?cat=hampers">Gift Hampers</a></li>
+            <li><a href="about.html" class="active-nav">Heritage &amp; Quality</a></li>
+            <li><a href="contact.html">Concierge &amp; Inquiries</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-icon-btn search-trigger-btn" data-action="open-search" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          <button class="header-icon-btn wishlist-nav-trigger" data-action="open-wishlist" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="icon-badge wishlist-count">0</span>
+          </button>
+          <div class="cart-nav-wrap cart-trigger-btn" data-action="open-cart" role="button" tabindex="0">
+            <div class="header-icon-btn">
+              <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span class="icon-badge cart-count">0</span>
+            </div>
+            <span class="cart-nav-price">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero-section">
+      <div class="container">
+        <span class="royal-seal">✦ CENTURIES OF REFINEMENT ✦</span>
+        <h1 style="font-family: var(--font-display); font-size: 3rem; margin: 10px 0 16px;">The Guardians of the High-Alpine Harvest</h1>
+        <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: rgba(255,255,255,0.85);">
+          Founded with a singular conviction: that the world's most nourishing dry fruits are produced not by industrial factories, but by mountain soil, pristine glacial melt, and generational patience.
+        </p>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="container">
+      <div class="stats-bar-grid">
+        <div class="stat-card">
+          <div class="stat-num">6,200 ft</div>
+          <div class="stat-label">Altitude of Kashmiri Orchards</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">50%+</div>
+          <div class="stat-label">Natural Essential Oil Retention</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">0%</div>
+          <div class="stat-label">Sulfites, Bleach &amp; Paraffin</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3 Tiers</div>
+          <div class="stat-label">Rigorous Hand-Inspection Protocol</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story Split 1: Origin -->
+    <section class="container" style="padding-bottom: 60px;">
+      <div class="story-split-row">
+        <div class="story-content">
+          <span class="royal-seal">✦ SACRED GROVES ✦</span>
+          <h2>Grown in Glacial Valleys, Hand-Plucked at Dawn</h2>
+          <p>
+            In the remote reaches of the Kashmir Himalayas and the terraced hilltops of Herat, dry fruit cultivation is not an industry—it is a sacred craft passed down through four generations of grower families.
+          </p>
+          <p>
+            Our trees are watered solely by mountain springs carrying mineral silt from ancient glaciers. Unlike commercial monoculture plantations, our trees are interspersed with wild saffron crocus and lavender, deterring pests naturally without petroleum insecticides.
+          </p>
+          <a href="shop.html" class="btn-royal-gold">Explore The Harvest Collection &rarr;</a>
+        </div>
+        <div class="story-img-frame hover-zoom-wrap">
+          <img src="/manus-storage/almonds_a5bde7bd.jpg" alt="Almond tree in Kashmiri grove">
+        </div>
+      </div>
+
+      <!-- Story Split 2: Quality Inspection -->
+      <div class="story-split-row reverse" id="quality">
+        <div class="story-content">
+          <span class="royal-seal">✦ THE GOLD STANDARD ✦</span>
+          <h2>The Triple-Inspection Guarantee</h2>
+          <p>
+            90% of retail dry fruits undergo chemical steaming, machine sorting, or sulfur fumigation to extend shelf life artificially. At Zaffran &amp; Co., we refuse every shortcut.
+          </p>
+          
+          <div class="quality-pillar-card">
+            <h4>Tier 1: Harvest Time Vibrational Shaking</h4>
+            <p style="font-size: 0.9rem; color: var(--color-muted); margin: 0;">Boughs are gently agitated onto cotton tarpaulins; no nuts touch the damp orchard floor.</p>
+          </div>
+
+          <div class="quality-pillar-card">
+            <h4>Tier 2: Alpine Sun-Curing</h4>
+            <p style="font-size: 0.9rem; color: var(--color-muted); margin: 0;">Naturally dried under thin mountain air over 14 days, gently evaporating moisture while concentrating therapeutic fats.</p>
+          </div>
+
+          <div class="quality-pillar-card">
+            <h4>Tier 3: Master Visual Calibration</h4>
+            <p style="font-size: 0.9rem; color: var(--color-muted); margin: 0;">Each kernel is hand-inspected for weight, uniform color, and natural moisture balance before nitrogen sealing.</p>
+          </div>
+        </div>
+        <div class="story-img-frame hover-zoom-wrap">
+          <img src="/manus-storage/almonds_a5bde7bd.jpg" alt="Master almond hand-sorting">
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="colophon" class="site-footer">
+      <div class="container">
+        <div class="footer-widgets-grid">
+          <div class="footer-widget">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+              <div class="brand-emblem">Z</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.3rem;">ZAFFRAN &amp; CO.</h3>
+            </div>
+            <p class="footer-desc">Curators of rare, high-altitude Kashmiri and international royal harvest dry fruits.</p>
+          </div>
+          <div class="footer-widget">
+            <h4>The Harvests</h4>
+            <ul class="footer-links-list">
+              <li><a href="shop.html?cat=almonds">Mamra Almonds</a></li>
+              <li><a href="shop.html?cat=dates">Medjool Dates</a></li>
+              <li><a href="shop.html?cat=hampers">Gift Chests</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget">
+            <h4>The Maison</h4>
+            <ul class="footer-links-list">
+              <li><a href="about.html">Heritage Story</a></li>
+              <li><a href="contact.html">Concierge Inquiries</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget">
+            <h4>Newsletter</h4>
+            <div class="newsletter-form-wrap">
+              <p>Sign up to receive 10% privilege discount code ROYAL10.</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Email..." required>
+                <button type="submit">Join</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>&copy; 2026 Zaffran &amp; Co. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="page-scroll-top" class="scroll-top-btn" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/floating-leaves.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/quickview.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

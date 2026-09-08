@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Zaffran & Co. Royal Harvest</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/custom-northgardens.css">
+  <style>
+    .product-detail-section {
+      padding: 40px 0 80px;
+    }
+    .product-main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      margin-bottom: 70px;
+    }
+    .product-gallery-side {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .main-gallery-viewport {
+      position: relative;
+      aspect-ratio: 1;
+      background: #F8F5EE;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+    }
+    .main-gallery-viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .main-gallery-viewport:hover img {
+      transform: scale(1.04);
+    }
+    .gallery-thumbnails-strip {
+      display: flex;
+      gap: 12px;
+    }
+    .gallery-thumb-box {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid var(--color-border);
+      background: #FFF;
+      transition: border-color 0.25s ease;
+    }
+    .gallery-thumb-box.active {
+      border-color: var(--color-accent-gold);
+    }
+    .gallery-thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info-side {
+      display: flex;
+      flex-direction: column;
+    }
+    .product-meta-badge {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-accent-gold-hover);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .product-heading-title {
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      color: var(--color-primary);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .product-pricing-card {
+      background: #FDFBF7;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 20px 0 24px;
+    }
+    .product-price-large {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .product-original-price {
+      font-size: 1.3rem;
+      color: var(--color-muted);
+      text-decoration: line-through;
+      margin-left: 12px;
+    }
+    .product-weight-selector {
+      margin-bottom: 24px;
+    }
+    .weight-options-grid {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .weight-pill-btn {
+      padding: 10px 24px;
+      border: 1.5px solid var(--color-border);
+      background: #FFFFFF;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .weight-pill-btn.active,
+    .weight-pill-btn:hover {
+      background: var(--color-primary);
+      color: var(--color-gold-light);
+      border-color: var(--color-primary);
+    }
+    .add-to-bag-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .qty-picker-large {
+      height: 52px;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+    .qty-picker-large button {
+      width: 44px;
+      height: 100%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: #FAF7F2;
+    }
+    .qty-picker-large span {
+      padding: 0 18px;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .add-to-bag-large-btn {
+      flex-grow: 1;
+      height: 52px;
+      font-size: 0.95rem;
+    }
+    .perks-list-box {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--color-charcoal);
+    }
+    .tabs-nav-bar {
+      display: flex;
+      gap: 30px;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 30px;
+    }
+    .tab-nav-link {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-muted);
+      padding: 12px 0;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+    .tab-nav-link.active {
+      color: var(--color-primary);
+    }
+    .tab-nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-accent-gold);
+    }
+    .tab-content-panel {
+      display: none;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tab-content-panel.active {
+      display: block;
+    }
+    .nutrition-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    .nutrition-table th,
+    .nutrition-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .nutrition-table th {
+      background: #FDFBF7;
+      font-family: var(--font-display);
+      color: var(--color-primary);
+    }
+    @media (max-width: 992px) {
+      .product-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="ambient-leaves-canvas" class="ambient-leaves-canvas"></canvas>
+
+  <div class="site-wrap">
+    
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement-bar">
+      <div class="container top-bar-inner">
+        <div class="announcement-text">
+          <span>👑 Royal Privilege:</span> Free Express Shipping on orders over $75 &bull; Code: <strong>ROYAL10</strong>
+        </div>
+        <div class="top-bar-links">
+          <a href="about.html">Orchard Story</a>
+          <a href="contact.html">Concierge Inquiries</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <header id="masthead" class="site-header">
+      <div class="container header-wrap">
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Open Menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="site-branding">
+          <a href="index.html">
+            <div class="brand-emblem">Z</div>
+            <div class="brand-text">
+              <span class="brand-title">ZAFFRAN &amp; CO.</span>
+              <span class="brand-tagline">ARTISANAL ROYAL HARVEST</span>
+            </div>
+          </a>
+        </div>
+
+        <nav id="site-navigation" class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active-nav">Royal Shop</a></li>
+            <li><a href="shop.html?cat=hampers">Gift Hampers</a></li>
+            <li><a href="about.html">Heritage &amp; Quality</a></li>
+            <li><a href="contact.html">Concierge &amp; Inquiries</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-icon-btn search-trigger-btn" data-action="open-search" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          <button class="header-icon-btn wishlist-nav-trigger" data-action="open-wishlist" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="icon-badge wishlist-count">0</span>
+          </button>
+          <div class="cart-nav-wrap cart-trigger-btn" data-action="open-cart" role="button" tabindex="0">
+            <div class="header-icon-btn">
+              <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span class="icon-badge cart-count">0</span>
+            </div>
+            <span class="cart-nav-price">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Product Details Section -->
+    <main class="product-detail-section">
+      <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <div style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 24px;">
+          <a href="index.html">Home</a> &sol; <a href="shop.html">Royal Shop</a> &sol; <span id="breadcrumb-product-name">Product</span>
+        </div>
+
+        <!-- Main Product Grid -->
+        <div class="product-main-grid" id="product-detail-container">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="product-tabs-wrapper">
+          <div class="tabs-nav-bar" id="product-tab-links">
+            <div class="tab-nav-link active" data-tab="overview">Harvest Story &amp; Origin</div>
+            <div class="tab-nav-link" data-tab="nutrition">Nutritional Profile</div>
+            <div class="tab-nav-link" data-tab="culinary">Storage &amp; Pairing</div>
+            <div class="tab-nav-link" data-tab="reviews">Connoisseur Reviews (<span id="tab-reviews-count">0</span>)</div>
+          </div>
+
+          <div id="tab-overview" class="tab-content-panel active">
+            <h3 style="font-family: var(--font-display); color: var(--color-primary); margin-bottom: 12px;">Mountain Provenance &amp; Hand-Harvesting</h3>
+            <p id="tab-full-desc" style="color: var(--color-charcoal); line-height: 1.8; margin-bottom: 20px;"></p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px;">
+              <div style="background: #FDFBF7; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                <strong style="color: var(--color-primary); display: block; margin-bottom: 4px;">Zero Bleach</strong>
+                <span style="font-size: 0.85rem; color: var(--color-muted);">No sulfur fumes or chemical brightening baths used.</span>
+              </div>
+              <div style="background: #FDFBF7; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                <strong style="color: var(--color-primary); display: block; margin-bottom: 4px;">High Oil Content</strong>
+                <span style="font-size: 0.85rem; color: var(--color-muted);">Retains 100% natural cold-pressed essential oils.</span>
+              </div>
+              <div style="background: #FDFBF7; padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                <strong style="color: var(--color-primary); display: block; margin-bottom: 4px;">Nitrogen Packed</strong>
+                <span style="font-size: 0.85rem; color: var(--color-muted);">Oxygen-free seal retains crisp crunch for 18 months.</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-nutrition" class="tab-content-panel">
+            <h3 style="font-family: var(--font-display); color: var(--color-primary); margin-bottom: 8px;">Nutritional Breakdown (Per 100g)</h3>
+            <p style="color: var(--color-muted); font-size: 0.88rem; margin-bottom: 18px;">Laboratory tested &bull; High in vital micronutrients &amp; polyphenols.</p>
+            <table class="nutrition-table" id="nutrition-table-body">
+              <!-- Rendered via JS -->
+            </table>
+          </div>
+
+          <div id="tab-culinary" class="tab-content-panel">
+            <h3 style="font-family: var(--font-display); color: var(--color-primary); margin-bottom: 12px;">Storage &amp; Pairing Recommendations</h3>
+            <p style="margin-bottom: 14px; color: var(--color-charcoal);">
+              <strong>Storage:</strong> Keep in a cool, dark larder between 10°C–18°C. For prolonged preservation beyond 6 months, store in an airtight glass container in the refrigerator crisper drawer.
+            </p>
+            <p style="color: var(--color-charcoal);">
+              <strong>Connoisseur Pairing:</strong> Exquisite alongside Kashmiri Kahwa green tea, single-malt Highland scotch, artisanal goat's cheese, and saffron wildflower honey.
+            </p>
+          </div>
+
+          <div id="tab-reviews" class="tab-content-panel">
+            <h3 style="font-family: var(--font-display); color: var(--color-primary); margin-bottom: 20px;">Customer Reviews &amp; Testimonials</h3>
+            <div id="reviews-list-container" style="display: flex; flex-direction: column; gap: 20px;">
+              <!-- Rendered via JS -->
+        </div>
+
+        <!-- Related Royal Harvests Section -->
+        <section style="margin-top: 70px;">
+          <div style="text-align: center; margin-bottom: 36px;">
+            <span class="royal-seal">✦ CURATED SUGGESTIONS ✦</span>
+            <h2 class="section-title">Complementary Royal Harvests</h2>
+          </div>
+          <div class="products-grid" id="related-products-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="colophon" class="site-footer">
+      <div class="container">
+        <div class="footer-widgets-grid">
+          <div class="footer-widget">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+              <div class="brand-emblem">Z</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.3rem;">ZAFFRAN &amp; CO.</h3>
+            </div>
+            <p class="footer-desc">Curators of rare, high-altitude Kashmiri and international royal harvest dry fruits.</p>
+          </div>
+          <div class="footer-widget">
+            <h4>The Harvests</h4>
+            <ul class="footer-links-list">
+              <li><a href="shop.html?cat=almonds">Mamra Almonds</a></li>
+              <li><a href="shop.html?cat=dates">Medjool Dates</a></li>
+              <li><a href="shop.html?cat=pistachios">Akbari Pistachios</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget">
+            <h4>The Maison</h4>
+            <ul class="footer-links-list">
+              <li><a href="about.html">Heritage Story</a></li>
+              <li><a href="contact.html">Concierge</a></li>
+            </ul>
+          </div>
+          <div class="footer-widget">
+            <h4>Privilege Club</h4>
+            <div class="newsletter-form-wrap">
+              <p>Code ROYAL10 grants 10% off your dispatch.</p>
+              <form class="newsletter-form">
+                <input type="email" placeholder="Email..." required>
+                <button type="submit">Join</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>&copy; 2026 Zaffran &amp; Co. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="page-scroll-top" class="scroll-top-btn" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/floating-leaves.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/quickview.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Product Detail Page Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodId = urlParams.get("id") || "prod-1";
+      const product = PRODUCTS_DATA.find(p => p.id === prodId) || PRODUCTS_DATA[0];
+
+      let selectedWeight = Object.keys(product.prices)[0] || "250g";
+      let quantity = 1;
+
+      // Update breadcrumbs and title
+      document.title = `${product.name} | Zaffran & Co. Royal Harvest`;
+      const breadcrumb = document.getElementById("breadcrumb-product-name");
+      if (breadcrumb) breadcrumb.textContent = product.name;
+
+      const container = document.getElementById("product-detail-container");
+      if (container) {
+        const initialPrice = product.prices[selectedWeight];
+        const initialOrigPrice = product.originalPrices ? product.originalPrices[selectedWeight] : null;
+
+        container.innerHTML = `
+          <!-- Left: Gallery -->
+          <div class="product-gallery-side">
+            <div class="main-gallery-viewport">
+              <span class="product-badge ${product.badgeType || ''}" style="position: absolute; top: 16px; left: 16px;">
+                ${product.badge || 'Grand Reserve'}
+              </span>
+              <img id="detail-main-img" src="${product.images[0]}" alt="${product.name}">
+            </div>
+            
+            ${product.images.length > 1 ? `
+              <div class="gallery-thumbnails-strip">
+                ${product.images.map((img, idx) => `
+                  <div class="gallery-thumb-box ${idx === 0 ? 'active' : ''}" data-src="${img}">
+                    <img src="${img}" alt="${product.name} angle ${idx+1}">
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Right: Purchase Panel -->
+          <div class="product-info-side">
+            <span class="product-meta-badge">✦ ${product.categoryLabel} &bull; ${product.origin}</span>
+            <h1 class="product-heading-title">${product.name}</h1>
+            
+            <div class="product-rating" style="font-size: 0.95rem; margin-bottom: 14px;">
+              <span>★★★★★</span>
+              <span class="count">${product.rating.toFixed(1)} &bull; (${product.reviewsCount} Connoisseur Reviews)</span>
+            </div>
+
+            <p style="color: var(--color-charcoal); line-height: 1.7; font-size: 1.05rem;">
+              ${product.shortDescription}
+            </p>
+
+            <div class="product-pricing-card">
+              <div style="display: flex; align-items: baseline;">
+                <span id="detail-price-val" class="product-price-large">$${initialPrice.toFixed(2)}</span>
+                ${initialOrigPrice ? `<span id="detail-orig-val" class="product-original-price">$${initialOrigPrice.toFixed(2)}</span>` : ''}
+              </div>
+              <span style="font-size: 0.8rem; color: var(--color-muted); display: block; margin-top: 4px;">
+                Freshness guaranteed &bull; Nitrogen hermetic seal &bull; Tax included
+              </span>
+            </div>
+
+            <div class="product-weight-selector">
+              <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary); display: block;">Select Package Weight:</label>
+              <div class="weight-options-grid">
+                ${Object.keys(product.prices).map(w => `
+                  <button type="button" class="weight-pill-btn ${w === selectedWeight ? 'active' : ''}" data-weight="${w}">
+                    ${w}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="add-to-bag-row">
+              <div class="qty-picker-large">
+                <button type="button" id="qty-minus-btn">-</button>
+                <span id="qty-val-display">${quantity}</span>
+                <button type="button" id="qty-plus-btn">+</button>
+              </div>
+              
+              <button type="button" id="detail-add-bag-btn" class="btn-royal-gold add-to-bag-large-btn">
+                <span>Add to Royal Bag</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+
+            <div class="perks-list-box">
+              <div>✈️ <strong>Free Royal Express Delivery</strong> on orders over $75</div>
+              <div>🍃 <strong>100% Unbleached &amp; Sun-Cured</strong>: No synthetic preservatives</div>
+              <div>👑 <strong>Handcrafted In Sealed Golden Tins</strong>: Sealed at origin</div>
+            </div>
+          </div>
+        `;
+
+        // Bind Gallery Thumbs
+        document.querySelectorAll(".gallery-thumb-box").forEach(thumb => {
+          thumb.addEventListener("click", () => {
+            const src = thumb.dataset.src;
+            const mainImg = document.getElementById("detail-main-img");
+            if (mainImg) mainImg.src = src;
+            document.querySelectorAll(".gallery-thumb-box").forEach(t => t.classList.remove("active"));
+            thumb.classList.add("active");
+          });
+        });
+
+        // Bind Weight Pills
+        document.querySelectorAll(".weight-pill-btn").forEach(pill => {
+          pill.addEventListener("click", () => {
+            selectedWeight = pill.dataset.weight;
+            document.querySelectorAll(".weight-pill-btn").forEach(p => p.classList.remove("active"));
+            pill.classList.add("active");
+
+            const price = product.prices[selectedWeight];
+            const origPrice = product.originalPrices ? product.originalPrices[selectedWeight] : null;
+
+            const priceEl = document.getElementById("detail-price-val");
+            const origEl = document.getElementById("detail-orig-val");
+            if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
+            if (origEl) {
+              if (origPrice) {
+                origEl.textContent = `$${origPrice.toFixed(2)}`;
+                origEl.style.display = "inline";
+              } else {
+                origEl.style.display = "none";
+              }
+            }
+          });
+        });
+
+        // Bind Quantity
+        const minusBtn = document.getElementById("qty-minus-btn");
+        const plusBtn = document.getElementById("qty-plus-btn");
+        const qtyDisplay = document.getElementById("qty-val-display");
+
+        if (minusBtn) {
+          minusBtn.addEventListener("click", () => {
+            quantity = Math.max(1, quantity - 1);
+            if (qtyDisplay) qtyDisplay.textContent = quantity;
+          });
+        }
+        if (plusBtn) {
+          plusBtn.addEventListener("click", () => {
+            quantity++;
+            if (qtyDisplay) qtyDisplay.textContent = quantity;
+          });
+        }
+
+        // Bind Add to Cart
+        const addBtn = document.getElementById("detail-add-bag-btn");
+        if (addBtn) {
+          addBtn.addEventListener("click", () => {
+            if (window.cartManager) {
+              window.cartManager.addItem(product, selectedWeight, quantity);
+            }
+          });
+        }
+      }
+
+      // Populate Tabs
+      const fullDescEl = document.getElementById("tab-full-desc");
+      if (fullDescEl) fullDescEl.textContent = product.fullDescription;
+
+      const nutritionTable = document.getElementById("nutrition-table-body");
+      if (nutritionTable && product.nutrition) {
+        nutritionTable.innerHTML = `
+          <tr><th>Nutritional Parameter</th><th>Metric Per 100g</th></tr>
+          ${Object.entries(product.nutrition).map(([key, val]) => `
+            <tr>
+              <td style="text-transform: capitalize;">${key.replace(/([A-Z])/g, ' $1')}</td>
+              <td><strong>${val}</strong></td>
+            </tr>
+          `).join('')}
+        `;
+      }
+
+      // Populate Reviews Tab
+      const tabCount = document.getElementById("tab-reviews-count");
+      if (tabCount) tabCount.textContent = REVIEWS_DATA.length;
+
+      const reviewsContainer = document.getElementById("reviews-list-container");
+      if (reviewsContainer) {
+        reviewsContainer.innerHTML = REVIEWS_DATA.map(r => `
+          <div style="border-bottom: 1px solid var(--color-border-light); padding-bottom: 18px;">
+            <div style="color: var(--color-accent-gold); margin-bottom: 4px;">★★★★★</div>
+            <h4 style="font-family: var(--font-display); color: var(--color-primary); font-size: 1.1rem; margin-bottom: 4px;">${r.title}</h4>
+            <p style="color: var(--color-charcoal); font-style: italic; margin-bottom: 8px;">"${r.comment}"</p>
+            <span style="font-size: 0.8rem; color: var(--color-muted); font-weight: 600;">&mdash; ${r.author}, ${r.location}</span>
+          </div>
+        `).join('');
+      }
+
+      // Tab Switching
+      document.querySelectorAll("#product-tab-links .tab-nav-link").forEach(tab => {
+        tab.addEventListener("click", () => {
+          const target = tab.dataset.tab;
+          document.querySelectorAll("#product-tab-links .tab-nav-link").forEach(t => t.classList.remove("active"));
+          document.querySelectorAll(".tab-content-panel").forEach(p => p.classList.remove("active"));
+
+          tab.classList.add("active");
+          const targetPanel = document.getElementById(`tab-${target}`);
+          if (targetPanel) targetPanel.classList.add("active");
+        });
+      });
+
+      // Populate Related Products
+      const relatedGrid = document.getElementById("related-products-grid");
+      if (relatedGrid) {
+        const related = PRODUCTS_DATA.filter(p => p.id !== product.id).slice(0, 3);
+        relatedGrid.innerHTML = related.map(p => {
+          const startingPrice = Object.values(p.prices)[0];
+          const defaultWeight = Object.keys(p.prices)[0];
+          return `
+            <div class="product-card" data-category="${p.category}" data-product-id="${p.id}">
+              ${p.badge ? `<span class="product-badge ${p.badgeType || ''}">${p.badge}</span>` : ''}
+              <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="${p.id}" aria-label="Save to Wishlist">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <div class="product-card-thumb">
+                <img class="img-primary" src="${p.images[0]}" alt="${p.name}" loading="lazy">
+                <div class="product-actions-floating">
+                  <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="${p.id}">Quickview</button>
+                </div>
+              </div>
+              <div class="product-card-body">
+                <span class="product-cat">${p.categoryLabel}</span>
+                <h3 class="product-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+                <div class="product-pricing-actions">
+                  <div class="price-wrap">
+                    <span class="current-price">$${startingPrice.toFixed(2)}</span>
+                  </div>
+                  <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA.find(x => x.id === '${p.id}'), '${defaultWeight}', 1)">
+                    <span>Add</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    });
+  </script>
+
+</body>
+</html>

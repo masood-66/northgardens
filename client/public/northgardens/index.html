@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaffran & Co. | Artisanal Dry Fruits & Royal Harvest</title>
+  <meta name="description" content="Direct-from-orchard luxury dry fruits, Kashmiri Mamra almonds, Jericho Medjool dates, and curated festive gift hampers. Hand-graded for royal purity.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/custom-northgardens.css">
+</head>
+<body>
+
+  <!-- Ambient Botanical Leaves Canvas (Controlled by floating-leaves.js) -->
+  <canvas id="ambient-leaves-canvas" class="ambient-leaves-canvas"></canvas>
+
+  <div class="site-wrap">
+    
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement-bar">
+      <div class="container top-bar-inner">
+        <div class="announcement-text">
+          <span>👑 Royal Privilege:</span> Complimentary Express Shipping on orders over $75 &bull; Use code <strong>ROYAL10</strong> for 10% off
+        </div>
+        <div class="top-bar-links">
+          <a href="about.html">Orchard Provenance</a>
+          <a href="contact.html">Corporate & Festive Gifting</a>
+          <a href="contact.html#faqs">Delivery Concierge</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header (Stockie Header Style) -->
+    <header id="masthead" class="site-header">
+      <div class="container header-wrap">
+        
+        <!-- Mobile Hamburger Toggle -->
+        <button id="hamburger-menu" class="hamburger-btn" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Logo Branding -->
+        <div class="site-branding">
+          <a href="index.html">
+            <div class="brand-emblem">Z</div>
+            <div class="brand-text">
+              <span class="brand-title">ZAFFRAN &amp; CO.</span>
+              <span class="brand-tagline">ARTISANAL ROYAL HARVEST</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav id="site-navigation" class="main-nav" aria-label="Primary Navigation">
+          <ul>
+            <li><a href="index.html" class="active-nav">Home</a></li>
+            <li><a href="shop.html">Royal Shop</a></li>
+            <li><a href="shop.html?cat=hampers">Gift Hampers</a></li>
+            <li><a href="about.html">Heritage &amp; Quality</a></li>
+            <li><a href="contact.html">Concierge &amp; Inquiries</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions (Search, Wishlist, Cart) -->
+        <div class="header-actions">
+          <!-- Search Trigger -->
+          <button class="header-icon-btn search-trigger-btn" data-action="open-search" title="Search Reserve" aria-label="Search Catalog">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <!-- Wishlist Trigger -->
+          <button class="header-icon-btn wishlist-nav-trigger" data-action="open-wishlist" title="Saved Harvests" aria-label="View Wishlist">
+            <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="icon-badge wishlist-count">0</span>
+          </button>
+
+          <!-- Cart Drawer Trigger -->
+          <div class="cart-nav-wrap cart-trigger-btn" data-action="open-cart" title="Shopping Bag" role="button" tabindex="0">
+            <div class="header-icon-btn">
+              <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="icon-badge cart-count">0</span>
+            </div>
+            <span class="cart-nav-price">$0.00</span>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Fullscreen Mobile Navigation Drawer (Stockie Style) -->
+    <div id="fullscreen-mega-menu" class="search-overlay mobile-menu-overlay" aria-hidden="true">
+      <button id="fullscreen-menu-close" class="search-close-btn" aria-label="Close menu">&times;</button>
+      <div class="search-modal-inner" style="text-align: center;">
+        <span class="royal-seal">✦ ZAFFRAN &amp; CO. DIRECTORY ✦</span>
+        <h2 style="margin-bottom: 30px; font-family: var(--font-display);">Explore The Reserve</h2>
+        <ul class="mobile-nav-list" style="list-style: none; display: flex; flex-direction: column; gap: 20px; font-size: 1.5rem; font-family: var(--font-display);">
+          <li><a href="index.html" class="gold-text">Home</a></li>
+          <li><a href="shop.html">Royal Shop &bull; All Harvests</a></li>
+          <li><a href="shop.html?cat=almonds">Mammoth Mamra Almonds</a></li>
+          <li><a href="shop.html?cat=dates">Jericho Medjool Dates</a></li>
+          <li><a href="shop.html?cat=hampers">Festive Gift Boxes</a></li>
+          <li><a href="about.html">Heritage &amp; Orchard Provenance</a></li>
+          <li><a href="contact.html">Concierge &amp; Inquiries</a></li>
+        </ul>
+        <div style="margin-top: 40px; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+          <p>Hand-picked in Kashmir &bull; Shipped Worldwide</p>
+          <p style="margin-top: 8px;">Direct Orders: +1 (800) 492-3371</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Homepage Hero -->
+    <section class="northgardens-hero" aria-labelledby="hero-heading">
+      <img class="northgardens-hero-image" src="/manus-storage/hero-section-image_ebb1a79b.png" alt="A curated Northgardens table setting in warm autumn light">
+      <div class="northgardens-hero-overlay"></div>
+      <div class="container northgardens-hero-content">
+        <span class="banner-tag">✦ The Northgardens dry-fruit reserve</span>
+        <h1 id="hero-heading">Naturally rich<br><em>carefully chosen.</em></h1>
+        <p>Explore orchard-fresh almonds, glossy dates, pistachios, walnuts and cashews selected for slow snacking, generous gifting and everyday nourishment.</p>
+        <div class="northgardens-hero-actions">
+          <a href="shop.html" class="btn-royal-gold">Shop now <span aria-hidden="true">→</span></a>
+          <a href="about.html" class="btn-hero-secondary">Our story <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Typing Split Promo Section (Inspired by Stockie Demo 2) -->
+    <section class="dynamic-promo-section">
+      <div class="container">
+        <div class="split-promo-grid">
+          
+          <div class="promo-text-column">
+            <span class="royal-seal">✦ THE CONNOISSEUR'S TABLE ✦</span>
+            <div class="dynamic-headline">
+              Hand-sorted for<br>
+              <span class="gold-text" data-dynamic-text data-dynamic-words='["morning rituals", "generous gifting", "pure nourishment", "festive tables"]'>morning rituals</span>
+            </div>
+            <p>Every almond, date, pistachio and walnut is checked for freshness, texture and natural richness before it is packed into a beautiful dry-fruit reserve.</p>
+            <div>
+              <a href="about.html" class="btn-outline-dark">Read Our Heritage Story</a>
+            </div>
+          </div>
+
+          <div class="promo-image-column hover-zoom-wrap">
+            <img src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Premium pistachios and walnuts prepared for the Northgardens reserve">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Handpicked Products Section (Stockie Masonry Layout) -->
+    <section class="products-section">
+      <div class="container">
+        
+        <div class="section-header-row">
+          <div>
+            <span class="royal-seal">✦ THE GRAND RESERVE ✦</span>
+            <h2 class="section-title">The dry-fruit reserve</h2>
+            <p class="section-subtitle">Premium almonds, dates, pistachios, walnuts, cashews and gift hampers — selected for freshness, flavor and a naturally satisfying crunch.</p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="category-filter-tabs" id="home-category-tabs">
+            <button class="tab-btn active" data-filter="all">All Harvests</button>
+            <button class="tab-btn" data-filter="almonds">Mamra Almonds</button>
+            <button class="tab-btn" data-filter="dates">Medjool Dates</button>
+            <button class="tab-btn" data-filter="pistachios">Pistachios</button>
+            <button class="tab-btn" data-filter="walnuts">Snow Walnuts</button>
+            <button class="tab-btn" data-filter="hampers">Gift Hampers</button>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="products-grid" id="featured-products-grid">
+          
+          <!-- Double-Width Signature Item: Mamra Almonds -->
+          <div class="product-card double-width" data-category="almonds" data-product-id="prod-1">
+            <span class="product-badge hot">Bestseller</span>
+            <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="prod-1" aria-label="Save to Wishlist">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            
+            <div class="product-card-thumb">
+              <img class="img-primary" src="/manus-storage/almonds_a5bde7bd.jpg" alt="Royal Kashmiri Mamra Almonds">
+              <img class="img-secondary" src="/manus-storage/almonds_a5bde7bd.jpg" alt="Mamra Almonds open bowl">
+              
+              <div class="product-actions-floating">
+                <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="prod-1">Quickview</button>
+              </div>
+            </div>
+
+            <div class="product-card-body">
+              <span class="product-cat">Almonds &bull; Kashmir Valley</span>
+              <h3 class="product-title"><a href="product.html?id=prod-1">Royal Kashmiri Mamra Almonds</a></h3>
+              <div class="product-rating">
+                <span>★★★★★</span>
+                <span class="count">4.9 (128 reviews)</span>
+              </div>
+              <div class="product-pricing-actions">
+                <div class="price-wrap">
+                  <span class="current-price">$18.00</span>
+                  <span class="old-price">$22.00</span>
+                </div>
+                <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA[0], '250g', 1)">
+                  <span>Add to Bag</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Medjool Dates -->
+          <div class="product-card" data-category="dates" data-product-id="prod-2">
+            <span class="product-badge">Grand Reserve</span>
+            <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="prod-2" aria-label="Save to Wishlist">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            <div class="product-card-thumb">
+              <img class="img-primary" src="/manus-storage/dates_212a8fe2.jpg" alt="Royal Medjool King Dates">
+              <img class="img-secondary" src="/manus-storage/dates_212a8fe2.jpg" alt="Medjool Dates close up">
+              <div class="product-actions-floating">
+                <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="prod-2">Quickview</button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-cat">Dates &bull; Jericho Oasis</span>
+              <h3 class="product-title"><a href="product.html?id=prod-2">Royal Medjool King Dates</a></h3>
+              <div class="product-rating">
+                <span>★★★★★</span>
+                <span class="count">5.0 (94 reviews)</span>
+              </div>
+              <div class="product-pricing-actions">
+                <div class="price-wrap">
+                  <span class="current-price">$14.00</span>
+                  <span class="old-price">$18.00</span>
+                </div>
+                <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA[1], '250g', 1)">
+                  <span>Add to Bag</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Afghani Akbari Pistachios -->
+          <div class="product-card" data-category="pistachios" data-product-id="prod-3">
+            <span class="product-badge sale">Sale</span>
+            <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="prod-3" aria-label="Save to Wishlist">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            <div class="product-card-thumb">
+              <img class="img-primary" src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Afghani Akbari Pistachios">
+              <img class="img-secondary" src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Roasted pistachios">
+              <div class="product-actions-floating">
+                <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="prod-3">Quickview</button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-cat">Pistachios &bull; Afghanistan</span>
+              <h3 class="product-title"><a href="product.html?id=prod-3">Afghani Akbari Roasted Pistachios</a></h3>
+              <div class="product-rating">
+                <span>★★★★★</span>
+                <span class="count">4.8 (82 reviews)</span>
+              </div>
+              <div class="product-pricing-actions">
+                <div class="price-wrap">
+                  <span class="current-price">$16.00</span>
+                  <span class="old-price">$20.00</span>
+                </div>
+                <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA[2], '250g', 1)">
+                  <span>Add to Bag</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Snow-White Kashmiri Walnuts -->
+          <div class="product-card" data-category="walnuts" data-product-id="prod-4">
+            <span class="product-badge">Organic</span>
+            <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="prod-4" aria-label="Save to Wishlist">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            <div class="product-card-thumb">
+              <img class="img-primary" src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Snow-White Kashmiri Walnut Kernels">
+              <img class="img-secondary" src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Walnut halves bowl">
+              <div class="product-actions-floating">
+                <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="prod-4">Quickview</button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-cat">Walnuts &bull; Shopian, Kashmir</span>
+              <h3 class="product-title"><a href="product.html?id=prod-4">Snow-White Kashmiri Walnut Kernels</a></h3>
+              <div class="product-rating">
+                <span>★★★★★</span>
+                <span class="count">4.9 (110 reviews)</span>
+              </div>
+              <div class="product-pricing-actions">
+                <div class="price-wrap">
+                  <span class="current-price">$15.00</span>
+                  <span class="old-price">$19.00</span>
+                </div>
+                <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA[3], '250g', 1)">
+                  <span>Add to Bag</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Jumbo Cashew Nuts -->
+          <div class="product-card" data-category="cashews" data-product-id="prod-6">
+            <span class="product-badge">Grade W180</span>
+            <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="prod-6" aria-label="Save to Wishlist">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            <div class="product-card-thumb">
+              <img class="img-primary" src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="King Jumbo W180 Cashews">
+              <img class="img-secondary" src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Cashews close up">
+              <div class="product-actions-floating">
+                <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="prod-6">Quickview</button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-cat">Cashews &bull; Mangalore</span>
+              <h3 class="product-title"><a href="product.html?id=prod-6">King Jumbo W180 Cashew Nuts</a></h3>
+              <div class="product-rating">
+                <span>★★★★★</span>
+                <span class="count">4.9 (142 reviews)</span>
+              </div>
+              <div class="product-pricing-actions">
+                <div class="price-wrap">
+                  <span class="current-price">$17.00</span>
+                  <span class="old-price">$21.00</span>
+                </div>
+                <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA[5], '250g', 1)">
+                  <span>Add to Bag</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Double-Width Item 6: The Royal Saffron Heritage Hamper -->
+          <div class="product-card double-width" data-category="hampers" data-product-id="prod-9">
+            <span class="product-badge hot">Grand Chest</span>
+            <button class="wishlist-heart-btn" data-action="toggle-wishlist" data-product-id="prod-9" aria-label="Save to Wishlist">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            <div class="product-card-thumb">
+              <img class="img-primary" src="/manus-storage/hamper_812cf37e.jpg" alt="The Royal Saffron Heritage Hamper">
+              <img class="img-secondary" src="/manus-storage/hamper_812cf37e.jpg" alt="Luxury dry fruit hamper gift box">
+              <div class="product-actions-floating">
+                <button type="button" class="btn-small-gold quickview-link" data-action="quickview" data-product-id="prod-9">Quickview</button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <span class="product-cat">Festive Chest &bull; Kashmir &amp; Dubai</span>
+              <h3 class="product-title"><a href="product.html?id=prod-9">The Royal Saffron Heritage Hamper</a></h3>
+              <div class="product-rating">
+                <span>★★★★★</span>
+                <span class="count">5.0 (52 reviews)</span>
+              </div>
+              <div class="product-pricing-actions">
+                <div class="price-wrap">
+                  <span class="current-price">$120.00</span>
+                  <span class="old-price">$145.00</span>
+                </div>
+                <button type="button" class="quick-add-btn" onclick="window.cartManager.addItem(PRODUCTS_DATA[8], 'Standard Chest', 1)">
+                  <span>Add to Bag</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="shop.html" class="btn-royal-gold">View Entire 2025 Harvest Reserve &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Heritage & Quality Assurance Split Section -->
+    <section class="heritage-section">
+      <div class="container">
+        <div class="heritage-grid">
+          <div class="heritage-content">
+            <span class="royal-seal">✦ UNCOMPROMISING PURITY ✦</span>
+            <h2>Ancient Grove Farming &amp; The Triple-Inspection Seal</h2>
+            <p>Unlike industrial commercial processors who polish almonds with paraffin and bleach walnut shells with sulfur fumes, Zaffran &amp; Co. honors the centuries-old Kashmiri tradition of sun-drying and wild forest harvesting.</p>
+            
+            <div class="heritage-features-list">
+              <div class="h-feat-item">
+                <h4>01. 100% Raw &amp; Unbleached</h4>
+                <p>Natural earthy hues and unbroken botanical oils as intended by nature.</p>
+              </div>
+              <div class="h-feat-item">
+                <h4>02. High Altitude Harvest</h4>
+                <p>Grown at 6,000+ feet altitude where cool glacial waters nourish rich soil minerals.</p>
+              </div>
+              <div class="h-feat-item">
+                <h4>03. Hand-Shelled Precision</h4>
+                <p>Gentle wooden mallets prevent micro-fractures in delicate nut meats.</p>
+              </div>
+              <div class="h-feat-item">
+                <h4>04. Nitrogen Fresh Seals</h4>
+                <p>Packed in oxygen-evacuated golden tins to prevent fatty acid oxidation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="heritage-image-frame hover-zoom-wrap">
+            <img src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Kashmiri Orchard Dry Fruits Preparation">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials & Reviews (Stockie Demo 2 Style) -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="royal-seal">✦ VOICES OF DISTINCTION ✦</span>
+          <h2 class="section-title">Endorsed by Master Chefs &amp; Connoisseurs</h2>
+          <p class="section-subtitle" style="margin: 8px auto 0;">From Michelin kitchens to discerning estates worldwide.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-title">"The standard by which all dry fruits should be judged"</h4>
+            <p class="review-comment">"The wooden presentation box alone is an heirloom piece. The Mamra almonds and Medjool dates taste incomparably fresher than anything sourced from boutique grocers in Mayfair. Flawless presentation."</p>
+            <div class="review-author">
+              <span class="author-name">Lady Eleanor Vance</span>
+              <span class="author-location">Kensington, London</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-title">"Astonishing natural oil content and crispness"</h4>
+            <p class="review-comment">"In my confectionery kitchens in Dubai, we tested over a dozen growers. Zaffran &amp; Co.'s Mamra almonds deliver that pristine high-altitude aromatic oil crunch that transforms morning rituals."</p>
+            <div class="review-author">
+              <span class="author-name">Chef Tariq Al-Mansoor</span>
+              <span class="author-location">Downtown, Dubai</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4 class="review-title">"Zero bitterness, pure buttery alpine luxury"</h4>
+            <p class="review-comment">"Usually walnut skins irritate my throat due to heavy tannins, but these snow-white halves are so delicate, fresh, and naturally sweet. I order two kilos every month without fail."</p>
+            <div class="review-author">
+              <span class="author-name">Dr. Anya Sharma</span>
+              <span class="author-location">Zurich, Switzerland</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram Curated Showcase (Stockie 6-col) -->
+    <section class="instagram-section">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <div>
+            <span class="royal-seal">✦ THE CONNOISSEUR'S JOURNAL ✦</span>
+            <h3 class="section-title">Follow @ZaffranRoyalHarvest</h3>
+          </div>
+          <p style="color: var(--color-muted); font-size: 0.9rem;">Tag your moments with <strong>#ZaffranConnoisseur</strong></p>
+        </div>
+
+        <div class="insta-grid">
+          <div class="insta-item">
+            <img src="/manus-storage/almonds_a5bde7bd.jpg" alt="Almond morning rituals">
+            <div class="insta-overlay"><span>✦</span></div>
+          </div>
+          <div class="insta-item">
+            <img src="/manus-storage/almonds_a5bde7bd.jpg" alt="Medjool date dessert styling">
+            <div class="insta-overlay"><span>✦</span></div>
+          </div>
+          <div class="insta-item">
+            <img src="/manus-storage/almonds_a5bde7bd.jpg" alt="Akbari pistachio slow roast">
+            <div class="insta-overlay"><span>✦</span></div>
+          </div>
+          <div class="insta-item">
+            <img src="/manus-storage/dates_212a8fe2.jpg" alt="Alpine walnut grove">
+            <div class="insta-overlay"><span>✦</span></div>
+          </div>
+          <div class="insta-item">
+            <img src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Festive royal gift hamper">
+            <div class="insta-overlay"><span>✦</span></div>
+          </div>
+          <div class="insta-item">
+            <img src="/manus-storage/pistachios-walnuts_f602aaaa.jpg" alt="Jumbo Goan Cashew harvest">
+            <div class="insta-overlay"><span>✦</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer id="colophon" class="site-footer">
+      <div class="container">
+        
+        <div class="footer-widgets-grid">
+          
+          <!-- Column 1: Brand Info -->
+          <div class="footer-widget">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+              <div class="brand-emblem">Z</div>
+              <h3 style="font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.08em;">ZAFFRAN &amp; CO.</h3>
+            </div>
+            <p class="footer-desc">Curators of rare, high-altitude Kashmiri and international royal harvest dry fruits, crafted for health, vitality, and grand celebratory occasions.</p>
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">
+              <p>📍 Estate Flagship: 1418 Riverwood Dr, Suite 3245, Cottonwood, CA</p>
+              <p style="margin-top: 4px;">📞 Concierge: +1 (800) 492-3371</p>
+              <p style="margin-top: 4px;">✉️ Dispatch: concierge@zaffranco.com</p>
+            </div>
+          </div>
+
+          <!-- Column 2: Harvest Collections -->
+          <div class="footer-widget">
+            <h4>The Harvests</h4>
+            <ul class="footer-links-list">
+              <li><a href="shop.html?cat=almonds">Kashmiri Mamra Almonds</a></li>
+              <li><a href="shop.html?cat=dates">Jericho Medjool Dates</a></li>
+              <li><a href="shop.html?cat=pistachios">Afghani Akbari Pistachios</a></li>
+              <li><a href="shop.html?cat=walnuts">Snow-White Mountain Walnuts</a></li>
+              <li><a href="shop.html?cat=cashews">King Jumbo Cashews</a></li>
+              <li><a href="shop.html?cat=hampers">Handcrafted Walnut Chests</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: The Maison -->
+          <div class="footer-widget">
+            <h4>The Maison</h4>
+            <ul class="footer-links-list">
+              <li><a href="about.html">Orchard Heritage</a></li>
+              <li><a href="about.html#quality">Triple-Inspection Seal</a></li>
+              <li><a href="contact.html">Corporate Gifting Catalog</a></li>
+              <li><a href="contact.html#faqs">Shipping &amp; Diplomatic Delivery</a></li>
+              <li><a href="contact.html">Private Label Reserve</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Newsletter -->
+          <div class="footer-widget">
+            <h4>Royal Connoisseur Club</h4>
+            <div class="newsletter-form-wrap">
+              <p>Subscribe to receive seasonal harvest bulletins, private cask releases, and 10% privilege on your inaugural dispatch.</p>
+              <form class="newsletter-form" id="royal-subscribe-form">
+                <input type="email" placeholder="Your royal email..." required>
+                <button type="submit">Join</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom-bar">
+          <div>
+            &copy; 2026 Zaffran &amp; Co. Artisanal Dry Fruits. All rights reserved. | <a href="contact.html">Privacy Notice</a> &bull; <a href="contact.html">Sale Terms</a>
+          </div>
+          <div class="payment-badges-row">
+            <span>💳 Amex</span>
+            <span>💳 Visa</span>
+            <span>💳 Mastercard</span>
+            <span> ApplePay</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="page-scroll-top" class="scroll-top-btn" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/floating-leaves.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/quickview.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- In-page Category Filter Interactivity -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabBtns = document.querySelectorAll("#home-category-tabs .tab-btn");
+      const productCards = document.querySelectorAll("#featured-products-grid .product-card");
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+
+          productCards.forEach(card => {
+            const cardCat = card.dataset.category;
+            if (filter === "all" || cardCat === filter) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
