@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "mysql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1788868731072,
+      "tag": "0000_blue_speedball",
+      "breakpoints": true
+    }
+  ]
 }

@@ -1,42 +1,42 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
+import { CartProvider } from "@/contexts/CartContext";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { InfoPage, CartPage, CheckoutPage, HomePage, NotFoundPage, ProductPage, ShopPage, StorefrontShell, WishlistPage } from "./components/storefront/NorthgardensStorefront";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <StorefrontShell>
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route path="/product/:handle" component={ProductPage} />
+        <Route path="/cart" component={CartPage} />
+        <Route path="/checkout" component={CheckoutPage} />
+        <Route path="/wishlist" component={WishlistPage} />
+        <Route path="/about"><InfoPage kind="about" /></Route>
+        <Route path="/journal"><InfoPage kind="journal" /></Route>
+        <Route path="/contact"><InfoPage kind="contact" /></Route>
+        <Route path="/faq"><InfoPage kind="faq" /></Route>
+        <Route component={NotFoundPage} />
+      </Switch>
+    </StorefrontShell>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
+export default function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <Toaster />
-          <Router />
+          <CartProvider>
+            <Toaster position="bottom-right" />
+            <Router />
+          </CartProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
-
-export default App;
