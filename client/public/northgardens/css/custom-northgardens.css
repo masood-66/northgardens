@@ -194,3 +194,6 @@ body { font-size: 1.4rem; }
 /* Let the brighter leaf silhouettes drift visibly across the background and section corners. */
 .ambient-leaves-canvas { z-index: 3; opacity: .96; mix-blend-mode: normal; }
 .ambient-leaves-toggle { z-index: 20; }
+
+/* A quiet Japanese maple garden sits behind the storefront while content stays readable. */
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(rgba(250,247,242,.74), rgba(250,247,242,.82)), url("/manus-storage/japanese-maple-background-optimized_61a5c475.jpg") center / cover no-repeat; opacity: .82; }

@@ -126,9 +126,13 @@ class FloatingBotanicals {
 
     const size = Math.random() * 24 + 18;
     const depth = Math.random() * 0.7 + 0.3; // 0.3 = far away, 1.0 = foreground
+    const canopySide = Math.random() < 0.5;
+    const canopyX = canopySide
+      ? Math.random() * this.width * 0.32
+      : this.width * (0.68 + Math.random() * 0.32);
 
     return {
-      x: Math.random() * this.width,
+      x: initial ? canopyX : Math.random() * this.width,
       y: initial ? Math.random() * this.height : -50,
       size: size * depth,
       depth: depth,
