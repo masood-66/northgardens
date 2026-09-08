@@ -93,38 +93,38 @@ class FloatingBotanicals {
   }
 
   spawnParticle(initial = false) {
-    const types = ["almond_leaf", "pistachio_leaf", "gold_petal", "small_floret"];
+    const types = ["japanese_maple", "ginkgo_leaf", "oak_leaf", "autumn_leaf"];
     const type = types[Math.floor(Math.random() * types.length)];
 
     // Color palettes for luxury botanical theme
     let colorScheme;
-    if (type === "gold_petal") {
+    if (type === "japanese_maple") {
       colorScheme = {
-        primary: "rgba(212, 175, 55, 0.45)", // Warm gold
-        secondary: "rgba(197, 160, 89, 0.35)",
-        vein: "rgba(235, 205, 120, 0.6)"
+        primary: "rgba(218, 68, 42, 0.82)",
+        secondary: "rgba(142, 35, 28, 0.66)",
+        vein: "rgba(255, 194, 118, 0.9)"
       };
-    } else if (type === "pistachio_leaf") {
+    } else if (type === "ginkgo_leaf") {
       colorScheme = {
-        primary: "rgba(82, 125, 96, 0.38)", // Sage pistachio green
-        secondary: "rgba(44, 76, 56, 0.3)",
-        vein: "rgba(120, 165, 135, 0.5)"
+        primary: "rgba(244, 190, 45, 0.82)",
+        secondary: "rgba(178, 114, 18, 0.62)",
+        vein: "rgba(255, 229, 128, 0.9)"
       };
-    } else if (type === "almond_leaf") {
+    } else if (type === "oak_leaf") {
       colorScheme = {
-        primary: "rgba(180, 142, 90, 0.4)", // Amber harvest leaf
-        secondary: "rgba(130, 95, 55, 0.32)",
-        vein: "rgba(215, 178, 125, 0.55)"
+        primary: "rgba(134, 83, 38, 0.78)",
+        secondary: "rgba(79, 48, 25, 0.64)",
+        vein: "rgba(237, 176, 81, 0.9)"
       };
     } else {
       colorScheme = {
-        primary: "rgba(238, 220, 180, 0.45)", // Soft cream floret
-        secondary: "rgba(200, 170, 120, 0.3)",
-        vein: "rgba(255, 245, 220, 0.6)"
+        primary: "rgba(197, 116, 45, 0.78)",
+        secondary: "rgba(120, 57, 29, 0.6)",
+        vein: "rgba(255, 207, 128, 0.86)"
       };
     }
 
-    const size = Math.random() * 18 + 14;
+    const size = Math.random() * 24 + 18;
     const depth = Math.random() * 0.7 + 0.3; // 0.3 = far away, 1.0 = foreground
 
     return {
@@ -142,7 +142,7 @@ class FloatingBotanicals {
       swaySpeed: Math.random() * 0.015 + 0.008,
       speedY: (Math.random() * 0.7 + 0.5) * depth,
       speedX: (Math.random() * 0.4 + 0.2),
-      opacity: (Math.random() * 0.35 + 0.25) * depth
+      opacity: (Math.random() * 0.28 + 0.58) * depth
     };
   }
 
@@ -218,16 +218,40 @@ class FloatingBotanicals {
 
     ctx.globalAlpha = p.opacity;
 
-    // Draw stylized curved leaf shape
+    // Draw a distinct botanical silhouette for each autumn leaf type.
     ctx.beginPath();
     const len = p.size;
     const w = p.size * 0.52;
 
-    // Curved bezier leaf outline
-    ctx.moveTo(0, -len * 0.5);
-    ctx.bezierCurveTo(w, -len * 0.3, w * 1.1, len * 0.2, 0, len * 0.5);
-    ctx.bezierCurveTo(-w * 1.1, len * 0.2, -w, -len * 0.3, 0, -len * 0.5);
-    ctx.closePath();
+    if (p.type === "japanese_maple") {
+      ctx.moveTo(0, -len * .52);
+      for (let i = 0; i < 7; i++) {
+        const angle = -Math.PI / 2 + i * Math.PI / 3;
+        const tipX = Math.cos(angle) * w;
+        const tipY = Math.sin(angle) * len * .5;
+        ctx.lineTo(tipX * .42, tipY * .42);
+        ctx.lineTo(tipX, tipY);
+      }
+      ctx.closePath();
+    } else if (p.type === "ginkgo_leaf") {
+      ctx.moveTo(0, len * .5);
+      ctx.quadraticCurveTo(-w * 1.2, 0, -w, -len * .32);
+      ctx.quadraticCurveTo(0, -len * .62, w, -len * .32);
+      ctx.quadraticCurveTo(w * 1.2, 0, 0, len * .5);
+      ctx.closePath();
+    } else if (p.type === "oak_leaf") {
+      ctx.moveTo(0, -len * .5);
+      ctx.bezierCurveTo(w * 1.25, -len * .25, w * .78, -len * .02, w * 1.02, len * .16);
+      ctx.bezierCurveTo(w * .42, len * .18, w * .7, len * .4, 0, len * .5);
+      ctx.bezierCurveTo(-w * .7, len * .4, -w * .42, len * .18, -w * 1.02, len * .16);
+      ctx.bezierCurveTo(-w * .78, -len * .02, -w * 1.25, -len * .25, 0, -len * .5);
+      ctx.closePath();
+    } else {
+      ctx.moveTo(0, -len * .5);
+      ctx.bezierCurveTo(w, -len * .3, w * 1.1, len * .2, 0, len * .5);
+      ctx.bezierCurveTo(-w * 1.1, len * .2, -w, -len * .3, 0, -len * .5);
+      ctx.closePath();
+    }
 
     // Gradient fill
     const grad = ctx.createLinearGradient(-w, -len * 0.5, w, len * 0.5);

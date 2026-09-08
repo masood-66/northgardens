@@ -190,3 +190,7 @@ body { font-size: 1.4rem; }
   .section-subtitle,
   .promo-text-column p { font-size: 1.4rem; }
 }
+
+/* Let the brighter leaf silhouettes drift visibly across the background and section corners. */
+.ambient-leaves-canvas { z-index: 3; opacity: .96; mix-blend-mode: normal; }
+.ambient-leaves-toggle { z-index: 20; }

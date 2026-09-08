@@ -14,4 +14,13 @@ describe("Northgardens static preview mount", () => {
     expect(existsSync(path.join(previewRoot, "index.html"))).toBe(true);
     expect(existsSync(path.join(previewRoot, "css/custom-northgardens.css"))).toBe(true);
   });
+
+  it("includes distinct visible autumn leaf silhouettes", () => {
+    const leaves = readFileSync(path.join(previewRoot, "js/floating-leaves.js"), "utf8");
+
+    for (const type of ["japanese_maple", "ginkgo_leaf", "oak_leaf", "autumn_leaf"]) {
+      expect(leaves).toContain(type);
+    }
+    expect(leaves).toContain("0.82");
+  });
 });
