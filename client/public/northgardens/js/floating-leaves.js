@@ -15,6 +15,8 @@ class FloatingBotanicals {
     }
 
     this.ctx = this.canvas.getContext("2d");
+    this.leafImage = new Image();
+    this.leafImage.src = "/manus-storage/red-maple-leaf-upside-down_5696697e.png";
     this.particles = [];
     this.isRunning = true;
     this.density = options.density || "subtle"; // 'subtle', 'lush', 'minimal'
@@ -214,13 +216,21 @@ class FloatingBotanicals {
 
     // Translate to center of particle
     ctx.translate(p.x, p.y);
-    ctx.rotate(p.rotation);
+    ctx.rotate(p.rotation + Math.PI);
 
     // Realistic 3D flutter: scaling on x-axis using cosine of pitch
     const foldFactor = Math.cos(p.pitch);
     ctx.scale(foldFactor, 1);
 
     ctx.globalAlpha = p.opacity;
+
+    // Use the supplied red maple leaf, kept small and rotated upside down.
+    if (this.leafImage.complete && this.leafImage.naturalWidth > 0) {
+      const leafSize = Math.max(14, p.size * 0.92);
+      ctx.drawImage(this.leafImage, -leafSize / 2, -leafSize / 2, leafSize, leafSize);
+      ctx.restore();
+      return;
+    }
 
     // Draw a distinct botanical silhouette for each autumn leaf type.
     ctx.beginPath();

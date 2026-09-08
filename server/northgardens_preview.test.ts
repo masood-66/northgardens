@@ -25,6 +25,8 @@ describe("Northgardens static preview mount", () => {
     }
     expect(leaves).toContain("0.82");
     expect(leaves).toContain("canopyX");
+    expect(leaves).toContain("red-maple-leaf-upside-down_5696697e.png");
+    expect(leaves).toContain("p.rotation + Math.PI");
   });
 
   it("includes a Japanese maple background layer", () => {
