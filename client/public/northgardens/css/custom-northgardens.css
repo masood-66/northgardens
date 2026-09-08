@@ -205,10 +205,11 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events
 .product-card, .dynamic-promo-section .promo-text-column, .social-proof-section .testimonial-card { background-color: rgba(255,255,255,.12); }
 .split-promo-grid { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.46); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); }
 .promo-text-column { background: rgba(255,255,255,.16) !important; }
-.cart-drawer { width: 560px; max-width: 96vw; background: rgba(247,241,231,.94); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
-.cart-drawer-header { padding: 28px 30px; }
+.cart-drawer { width: 620px; max-width: 96vw; background: rgba(247,241,231,.94); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.cart-drawer-header { padding: 20px 28px; }
 .cart-drawer-title { font-size: 1.45rem; }
-.cart-items-list { padding: 28px 30px; gap: 24px; }
+.shipping-tracker-card { padding: 10px 28px; }
+.cart-items-list { min-height: 280px; padding: 22px 28px; gap: 20px; }
 .cart-item-row { gap: 20px; padding: 0 0 22px; min-height: 132px; }
 .cart-item-thumb { width: 116px; height: 116px; border-radius: 12px; background: rgba(255,255,255,.55); border: 1px solid rgba(185,120,69,.2); box-shadow: 0 8px 18px rgba(11,33,23,.12); }
 .cart-item-name { font-size: 1.18rem; margin-bottom: 8px; }
@@ -217,6 +218,8 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events
 .quantity-selector-micro button { width: 32px; }
 .quantity-selector-micro .qty-display { padding: 0 11px; font-size: .95rem; }
 .cart-item-line-price { font-size: 1.25rem; }
-.cart-drawer-footer { padding: 26px 30px 30px; background: rgba(247,241,231,.72); }
+.cart-drawer-footer { padding: 16px 28px 20px; background: rgba(247,241,231,.72); }
+.coupon-box { margin-bottom: 10px; }
+.cart-summary-lines { gap: 5px; }
 .checkout-action-btn { min-height: 56px; font-size: 1rem; letter-spacing: .02em; }
 .continue-shopping-link { font-size: .98rem; }

@@ -40,7 +40,8 @@ describe("Northgardens static preview mount", () => {
     const styles = readFileSync(path.join(previewRoot, "css/custom-northgardens.css"), "utf8");
     const cart = readFileSync(path.join(previewRoot, "js/cart.js"), "utf8");
     expect(styles).toContain(".cart-item-thumb { width: 116px; height: 116px");
-    expect(styles).toContain(".cart-drawer { width: 560px");
+    expect(styles).toContain(".cart-drawer { width: 620px");
+    expect(styles).toContain(".cart-items-list { min-height: 280px");
     expect(cart).toContain("Squeeze Your Royal Bag");
   });
 });
