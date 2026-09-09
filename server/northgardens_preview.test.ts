@@ -46,4 +46,16 @@ describe("Northgardens static preview mount", () => {
     expect(cart).toContain("<span>Checkout</span>");
     expect(drawerMarkup).not.toContain("cart-coupon-input");
   });
+
+  it("keeps the GitHub Pages root index linked to the nested storefront", () => {
+    const root = path.resolve(process.cwd(), "index.html");
+    const homepage = readFileSync(root, "utf8");
+    const shop = readFileSync(path.resolve(process.cwd(), "northgardens/shop.html"), "utf8");
+    const quickview = readFileSync(path.resolve(process.cwd(), "northgardens/js/quickview.js"), "utf8");
+    expect(homepage).toContain('href="northgardens/css/style.css"');
+    expect(homepage).toContain('src="northgardens/js/quickview.js"');
+    expect(homepage).toContain('href="northgardens/shop.html"');
+    expect(shop).toContain('type="button" class="wishlist-heart-btn');
+    expect(quickview).toContain("qvBtn.closest(\"[data-product-id]\")");
+  });
 });

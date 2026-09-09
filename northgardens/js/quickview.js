@@ -36,7 +36,7 @@ class QuickviewManager {
       const qvBtn = e.target.closest("[data-action='quickview'], .quickview-link, .quickview-inner");
       if (qvBtn) {
         e.preventDefault();
-        const prodId = qvBtn.dataset.productId;
+        const prodId = qvBtn.dataset.productId || qvBtn.closest("[data-product-id]")?.dataset.productId;
         this.open(prodId);
       }
 
